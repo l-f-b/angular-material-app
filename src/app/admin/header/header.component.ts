@@ -25,9 +25,5 @@ export class HeaderComponent {
   }
 
   toggleFullscreen() {
-    if (screenfull.enabled) {
-      screenfull.toggle();
-      this.isFullscreen = !this.isFullscreen;
-    }
   }
 }

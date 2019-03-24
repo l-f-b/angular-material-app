@@ -8,6 +8,8 @@ import { BotManagerService } from './bot-manager.service';
 })
 export class BotManagerComponent implements OnInit {
 
+  bots: any[] = [];
+
   constructor(private service: BotManagerService) { }
 
   ngOnInit() {
@@ -17,6 +19,12 @@ export class BotManagerComponent implements OnInit {
     this.service.addBot().subscribe(
       (data) => console.log(data)
     );
+  }
+
+  onQuery() {
+    this.service.getBotList().subscribe( bots => {
+        this.bots = bots.data;
+    });
   }
 
 }

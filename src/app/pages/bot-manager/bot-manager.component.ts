@@ -8,11 +8,15 @@ import { BotManagerService } from './bot-manager.service';
 })
 export class BotManagerComponent implements OnInit {
 
-  bots: any[] = [];
+  bots: any;
 
   constructor(private service: BotManagerService) { }
 
   ngOnInit() {
+    console.log('init bot managerCompoent');
+    this.service.getBotList().subscribe( bots => {
+        this.bots = bots;
+    });
   }
   // 添加bot函数
   onAdd() {
@@ -23,7 +27,7 @@ export class BotManagerComponent implements OnInit {
 
   onQuery() {
     this.service.getBotList().subscribe( bots => {
-        this.bots = bots.data;
+        this.bots = bots;
     });
   }
 

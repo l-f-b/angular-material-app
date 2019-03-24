@@ -14,6 +14,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
   constructor(private service: FileManagerService) {}
 
   ngOnInit() {
+    console.log('init file managerCompoent');
     this.service.getFilesList().subscribe(files => {
       this.files = files;
     });

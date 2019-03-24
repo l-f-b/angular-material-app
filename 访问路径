@@ -1,0 +1,5 @@
+打开bot进程,返回二维码=wechat-manager/openAweChat/openClient
+打开bot进程=wechat-manager/openAweChat/openBotManager
+进程id获取二维码=wechat-manager/openAweChat/getBotQRCode
+
+获取所有bot=wechat-manager/botManagerController/getAllBot

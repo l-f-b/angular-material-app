@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogArticleComponent } from './blog/article/article.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
+import { BotManagerComponent } from './bot-manager/bot-manager.component';
 import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogArticleComponent },
   { path: 'file-manager', component: FileManagerComponent },
+  { path: 'bot-manager', component: BotManagerComponent },
   { path: 'projects', component: ProjectComponent }
 ];
 

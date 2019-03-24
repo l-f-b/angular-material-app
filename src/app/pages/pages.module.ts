@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import {
   PaginationModule,
@@ -23,9 +24,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
 import { FileManagerFirebase } from './file-manager/file-manager.firebase';
 import { FileManagerService } from './file-manager/file-manager.service';
+import { BotManagerService } from './bot-manager/bot-manager.service';
 import { ProjectComponent } from './project/project.component';
 
 import { GraphQLModule } from '../shared/graphql.module';
+import { BotManagerComponent } from './bot-manager/bot-manager.component';
 
 @NgModule({
   imports: [
@@ -34,6 +37,7 @@ import { GraphQLModule } from '../shared/graphql.module';
     PagesRoutingModule,
     BaseLayoutModule,
     GithubButtonModule,
+    HttpClientModule,
     LoadingModule,
     GraphQLModule,
     UserModule
@@ -48,8 +52,9 @@ import { GraphQLModule } from '../shared/graphql.module';
     ProfileComponent,
     FileManagerComponent,
     ProjectComponent,
-    FileSizePipe
+    FileSizePipe,
+    BotManagerComponent
   ],
-  providers: [FileManagerFirebase, FileManagerService, BlogService]
+  providers: [FileManagerFirebase, FileManagerService, BlogService, BotManagerService]
 })
 export class PagesModule {}

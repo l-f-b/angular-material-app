@@ -209,6 +209,12 @@ export class NavigationModel {
         icon: 'content_copy',
         children: [
           {
+            id: 'wechat-bot',
+            title: 'bot管理',
+            type: 'item',
+            url: '/pages/bot-manager'
+          },
+          {
             id: 'file-manager',
             title: '文件管理',
             type: 'item',

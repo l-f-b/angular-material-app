@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BotManagerService } from './bot-manager.service';
+import {Bot, ResultBean} from '../result-bean';
+import {DialogService} from '../../component/dialog';
 
 @Component({
   selector: 'app-bot-manager',
@@ -8,14 +10,15 @@ import { BotManagerService } from './bot-manager.service';
 })
 export class BotManagerComponent implements OnInit {
 
-  bots: any;
+  bots: Bot[];
 
-  constructor(private service: BotManagerService) { }
+  constructor(private service: BotManagerService,
+              private dialog: DialogService) { }
 
   ngOnInit() {
     console.log('init bot managerCompoent');
-    this.service.getBotList().subscribe( bots => {
-        this.bots = bots;
+    this.service.getBotList().subscribe((bots: ResultBean<Bot[]>)  => {
+        this.bots = bots.data;
     });
   }
   // 添加bot函数
@@ -24,11 +27,13 @@ export class BotManagerComponent implements OnInit {
       (data) => console.log(data)
     );
   }
-
-  onQuery() {
-    this.service.getBotList().subscribe( bots => {
-        this.bots = bots;
-    });
+  onGetQrcode(bot: Bot) {
+    this.dialog.alert({
+      title: '二维码',
+      message: bot.botClientId,
+      closeButton: '确定'
+    })
+    console.log(bot.pid);
   }
 
 }

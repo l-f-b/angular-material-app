@@ -4,7 +4,7 @@
       <mat-icon>add</mat-icon> 添加bot
     </button>
   </div>
-  <div class="stbui-table-main mat-elevation-z2">
+  <div class="stbui-table-main mat-elevation-z2" *ngIf="!!bots">
     <div class="stbui-table-toolbar" fxLayout="row" fxLayoutAlign="start center">
       <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex="50px">
         <span>
@@ -15,7 +15,7 @@
         <span>名称</span>
       </div>
       <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-        <span>client</span>
+        <span>status</span>
       </div>
       <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
         <span>pid</span>
@@ -23,24 +23,39 @@
       <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
         <span>port</span>
       </div>
+      <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+        <span>创建时间</span>
+      </div>
+      <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+        <span>操作</span>
+      </div>
+    </div>
 
-      <div class="stbui-table-list">
-        <div class="stbui-table" fxLayout="row" *ngFor="let bot of bots.data">
-          <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex="50px">
-            <mat-checkbox [checked]="checked" (change)="onCheckBoxTrigger($event, file)"></mat-checkbox>
-          </div>
-          <div class="start-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-            <span>{{ bot.name }}</span>
-          </div>
-          <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-            <span>{{ bot.client }}</span>
-          </div>
-          <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-            <span>{{ bot.pid }}</span>
-          </div>
-          <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-            <span>{{ bot.port }}</span>
-          </div>
+    <div class="stbui-table-list">
+      <div class="stbui-table" fxLayout="row" *ngFor="let bot of bots">
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex="50px">
+          <mat-checkbox [checked]="checked" (change)="onCheckBoxTrigger($event, bot)"></mat-checkbox>
+        </div>
+        <div class="start-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <span>{{ bot.botClientId }}</span>
+        </div>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <span>{{ bot.status }}</span>
+        </div>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <span>{{ bot.pid }}</span>
+        </div>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <span>{{ bot.port }}</span>
+        </div>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <span>{{ bot.createTime | date:"yyyy/MM/dd"}}</span>
+        </div>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <button mat-raised-button color="primary" (click)="onAdd()">
+            <mat-icon>add</mat-icon> 添加bot
+          </button>
+          <a target="_blank" href="http://localhost:8000/wechat-manager/{{ bot.qrcodePath}}">获取二维码</a>
         </div>
       </div>
     </div>

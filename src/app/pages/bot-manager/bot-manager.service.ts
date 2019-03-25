@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class BotManagerService {
 
-  private apiUrl = 'http://192.168.1.11:8000/wechat-manager/openAweChat/openBotManager';
+  private apiUrl = 'http://127.0.0.1:8000/wechat-manager/openAweChat/openBotManager';
 
-  private getListUrl = 'http://192.168.1.11:8000/wechat-manager/botManagerController/getAllBot';
+  private getListUrl = 'http://127.0.0.1:8000/wechat-manager/botManagerController/getAllBot';
 
-  private loginUrl = 'http://192.168.1.11:8000/wechat-manager/openAweChat/openClient';
+  private loginUrl = 'http://127.0.0.1:8000/wechat-manager/openAweChat/openClient';
 
   constructor(private http: HttpClient) {
   }

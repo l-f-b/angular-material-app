@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import {
   PaginationModule,
   GithubButtonModule,
-  LoadingModule
+  LoadingModule, DialogModule
 } from '../component';
 import { FileSizePipe } from '../component/file-upload/file-size.pipe';
 import { BaseLayoutModule } from '../layouts';
@@ -40,7 +40,8 @@ import { BotManagerComponent } from './bot-manager/bot-manager.component';
     HttpClientModule,
     LoadingModule,
     GraphQLModule,
-    UserModule
+    UserModule,
+    DialogModule
   ],
   declarations: [
     PagesComponent,

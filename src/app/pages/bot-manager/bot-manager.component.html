@@ -52,7 +52,7 @@
           <span>{{ bot.createTime | date:"yyyy/MM/dd"}}</span>
         </div>
         <div class="content-wrapper" fxLayout="row" fxLayoutAlign="start center" fxFlex>
-          <button mat-raised-button color="primary" (click)="onAdd()">
+          <button mat-raised-button color="primary" (click)="startBot(bot)">
             <mat-icon>add</mat-icon> 添加bot
           </button>
           <a target="_blank" href="http://localhost:8000/wechat-manager/{{ bot.qrcodePath}}">获取二维码</a>

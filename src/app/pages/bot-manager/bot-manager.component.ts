@@ -32,8 +32,17 @@ export class BotManagerComponent implements OnInit {
       title: '二维码',
       message: bot.botClientId,
       closeButton: '确定'
-    })
+    });
     console.log(bot.pid);
+  }
+  // 启动一个bot
+  startBot(bot: Bot) {
+    this.service.loginBot().subscribe();
+  }
+  stopBot(bot: Bot) {
+    this.service.getBotList().subscribe();
+  }
+  getBotInfo(bot: Bot) {
   }
 
 }

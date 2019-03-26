@@ -14,3 +14,11 @@ export class Bot {
     public qrcodePath: string,
   ) {}
 }
+
+export class Friend {
+  constructor(
+    public name: string,
+    public age: number,
+    public city: string,
+  ) {}
+}
